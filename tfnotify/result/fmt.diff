@@ -1,0 +1,56 @@
+[INFO] Found changes in following dirs:
+
+  - terraform/microservices/mercari-authority/development
+  - terraform/microservices/mercari-kyc-jp/development
+
+[INFO] Running 'script/fmt' for changed dirs
+[INFO] Validating workdir: /terraform/microservices/mercari-authority/development
+[INFO] Building terraform docker image
+Building terraform
+Step 1/5 : FROM hashicorp/terraform:0.11.4
+ ---> e3ac19aaa518
+Step 2/5 : ENV TERRAFORM_SENTRY_VERSION 0.4.0
+ ---> Using cache
+ ---> ff17b4bdf100
+Step 3/5 : WORKDIR /terraform
+ ---> Using cache
+ ---> acf05fcad60c
+Step 4/5 : RUN apk --no-cache add 		ca-certificates 		wget
+ ---> Using cache
+ ---> 611914a05ac9
+Step 5/5 : RUN wget https://github.com/jianyuan/terraform-provider-sentry/releases/download/v${TERRAFORM_SENTRY_VERSION}/terraform-provider-sentry_${TERRAFORM_SENTRY_VERSION}_linux_amd64.tar.gz 	&& tar -zxvf terraform-provider-sentry_${TERRAFORM_SENTRY_VERSION}_linux_amd64.tar.gz 	&& mkdir -pv /root/.terraform.d/plugins 	&& mv terraform-provider-sentry /root/.terraform.d/plugins/terraform-provider-sentry_v${TERRAFORM_SENTRY_VERSION} 	&& rm terraform-provider-sentry_${TERRAFORM_SENTRY_VERSION}_linux_amd64.tar.gz
+ ---> Using cache
+ ---> 0a01260f9b6d
+Successfully built 0a01260f9b6d
+Successfully tagged project_terraform:latest
+[INFO] Running 'terraform version'
+Terraform v0.11.4
+
+
+
+Your version of Terraform is out of date! The latest version
+
+is 0.11.5. You can update by downloading from www.terraform.io/downloads.html
+
+[INFO] Running 'terraform fmt' in /terraform/microservices/mercari-authority/development
+google_project_iam_member.tf
+
+diff a/google_project_iam_member.tf b/google_project_iam_member.tf
+
+--- /tmp/796613021
+
++++ /tmp/178858072
+
+@@ -15,4 +15,3 @@
+
+   role    = "roles/spanner.databaseAdmin"
+
+   member  = "serviceAccount:mercari-authority@mercari-jp-citadel-dev.iam.gserviceaccount.com"
+
+ }
+
+-
+
+[ERROR] The terraform configuration files are not formatted.
+[ERROR] Please run 'CI=false script/fmt /terraform/microservices/mercari-authority/development' before running /home/circleci/project/script/fmt
+[DEBUG] Dumped markdown to /tmp/terraform-fmt.log

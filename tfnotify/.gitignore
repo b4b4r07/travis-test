@@ -1,0 +1,4 @@
+tfnotify
+*.result
+*.yaml
+vendor

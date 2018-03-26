@@ -1,17 +1,12 @@
-language: generic
+language: go
 
 go:
   - master
 
 before_script:
-  - echo "======"
-  - echo $TRAVIS
-  - echo $TRAVIS_PULL_REQUEST
-  - echo $TRAVIS_PULL_REQUEST_BRANCH
-  - echo $TRAVIS_COMMIT
-  - echo $TRAVIS_PULL_REQUEST_SHA
-  - echo $TRAVIS_REPO_SLUG
-  - echo $TRAVIS_SECURE_ENV_VARS
+  cd tfnotify
+  go build
 
 script:
-  env
+  cd tfnotify
+  cat result/apply.ok.result | ./tfnotify apply
