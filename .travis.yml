@@ -17,4 +17,4 @@ before_script:
   - which tfnotify
 
 script:
-  echo "Plan: 1 to add" | $(which tfnotify) plan
+  echo "Plan: 1 to add" | /home/travis/gopath/bin/tfnotify plan
