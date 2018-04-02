@@ -1,0 +1,7 @@
+ci: circleci
+notifier:
+  github:
+    token: $GITHUB_TOKEN
+    repository:
+      owner: "b4b4r07"
+      name: "travis-test"

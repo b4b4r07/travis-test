@@ -1,0 +1,22 @@
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + google_compute_global_address.corp_teams_web_hoge_in
+      id:         <computed>
+      address:    <computed>
+      ip_version: "IPV4"
+      name:       "corp-teams-web-hoge-in"
+      project:    "hoge-jp-hogedel-prod"
+      self_link:  <computed>
+
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+------------------------------------------------------------------------
+
+Note: You didn't specify an "-out" parameter to save this plan, so Terraform
+can't guarantee that exactly these actions will be performed if
+"terraform apply" is subsequently run.
