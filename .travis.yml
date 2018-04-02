@@ -11,6 +11,7 @@ install:
   - git clone https://github.com/b4b4r07/tfnotify
   - cd tfnotify
   - dep ensure
+  - go install
 
 before_script:
   - echo before
