@@ -21,4 +21,4 @@ before_script:
   - tfnotify --help
 
 script:
-  echo "Plan\: 1 to add" | tfnotify plan
+  echo 'Plan: 1 to add' | tfnotify plan
