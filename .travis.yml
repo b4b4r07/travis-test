@@ -11,8 +11,8 @@ install:
   # - go get -u github.com/urfave/cli
   # - go get -u github.com/b4b4r07/tfnotify
   - go get -v github.com/golang/dep/cmd/dep
-  - git clone https://github.com/b4b4r07/tfnotify $GOPATH/tfnotify
-  - cd $GOPATH/tfnotify
+  - git clone https://github.com/b4b4r07/tfnotify $GOPATH/src/github.com//b4b4r07/tfnotify
+  - cd $GOPATH/src/github.com//b4b4r07/tfnotify
   # - cd tfnotify
   - dep ensure
   - go install -v
