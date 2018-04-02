@@ -4,6 +4,8 @@ go:
   - master
 
 install:
+  - go get -u github.com/mattn/go-colorable
+  - go get -u github.com/urfave/cli
   - go get -u github.com/b4b4r07/tfnotify
 
 before_script:
