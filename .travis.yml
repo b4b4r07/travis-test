@@ -11,10 +11,10 @@ install:
   - git clone https://github.com/b4b4r07/tfnotify
   - cd tfnotify
   - dep ensure
-  - go install
+  - go install -v
 
 before_script:
-  - echo before
+  - which tfnotify
 
 script:
   echo "Plan: 1 to add" | tfnotify plan
