@@ -3,8 +3,11 @@ language: go
 go:
   - master
 
+install:
+  - go get -u github.com/b4b4r07/tfnotify
+
 before_script:
-  go get -u github.com/b4b4r07/tfnotify
+  - echo before
 
 script:
   echo "Plan: 1 to add" | tfnotify plan
