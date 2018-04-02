@@ -1,14 +1,27 @@
 language: go
 
 go:
-  - 1.8
-  - master
+  - 1.9
+
+env:
+  - PATH=$PATH:$GOPATH/bin
+
+install:
+  # - go get -u github.com/mattn/go-colorable
+  # - go get -u github.com/urfave/cli
+  # - go get -u github.com/b4b4r07/tfnotify
+  - go get -v github.com/golang/dep/cmd/dep
+  - git clone https://github.com/b4b4r07/tfnotify $GOPATH/src/github.com//b4b4r07/tfnotify
+  - cd $GOPATH/src/github.com//b4b4r07/tfnotify
+  # - cd tfnotify
+  - dep ensure
+  - go install -v
+  - cd -
 
 before_script:
-  - echo $TRAVIS
-  - echo $TRAVIS_PULL_REQUEST
-  - echo $TRAVIS_PULL_REQUEST_BRANCH
-  - echo $TRAVIS_COMMIT
-  - echo $TRAVIS_PULL_REQUEST_SHA
-  - echo $TRAVIS_REPO_SLUG
-  - echo $TRAVIS_SECURE_ENV_VARS
+  - which tfnotify
+  - tfnotify --help
+  - pwd
+
+script:
+  cat plan.result | tfnotify plan
