@@ -4,9 +4,7 @@ go:
   - master
 
 before_script:
-  cd tfnotify
-  go build
+  go get -u github.com/b4b4r07/tfnotify
 
 script:
-  cd tfnotify
-  cat result/apply.ok.result | ./tfnotify apply
+  echo "Plan: 1 to add" | tfnotify plan
