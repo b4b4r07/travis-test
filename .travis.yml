@@ -15,10 +15,12 @@ install:
   - cd tfnotify
   - dep ensure
   - go install -v
+  - cd -
 
 before_script:
   - which tfnotify
   - tfnotify --help
+  - pwd
 
 script:
   cat plan.result | tfnotify plan
